@@ -4,6 +4,7 @@
 #include "vgl.h"
 
 #include <stdio.h>
+#include <memory.h>
 
 VBObject::VBObject(void)
     : m_vao(0),

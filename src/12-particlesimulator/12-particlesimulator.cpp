@@ -74,7 +74,7 @@ END_APP_DECLARATION()
 
 DEFINE_APP(ComputeParticleSimulator, "Compute Shader Particle System")
 
-#define STRINGIZE(a) #a
+#define STRINGIZE(version, shader)  "#version " #version "core\n" #shader
 
 static inline float random_float()
 {
@@ -110,8 +110,7 @@ void ComputeParticleSimulator::Initialize(const char * title)
     compute_prog = glCreateProgram();
 
     static const char compute_shader_source[] =
-        STRINGIZE(
-#version 430 core\n
+        STRINGIZE(430,
 
 layout (std140, binding = 0) uniform attractor_block
 {

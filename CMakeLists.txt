@@ -20,8 +20,21 @@ set (CMAKE_DEBUG_POSTFIX "_d")
 
 find_package(OpenGL REQUIRED)
 
+IF(APPLE)
+   INCLUDE_DIRECTORIES ( /System/Library/Frameworks )
+   FIND_LIBRARY(COCOA_LIBRARY Cocoa)
+   FIND_LIBRARY(GLUT_LIBRARY GLUT )
+   FIND_LIBRARY(OpenGL_LIBRARY OpenGL )
+   MARK_AS_ADVANCED (COCOA_LIBRARY
+                     GLUT_LIBRARY
+                     OpenGL_LIBRARY)
+   SET(EXTRA_LIBS ${COCOA_LIBRARY} ${GLUT_LIBRARY} ${OpenGL__LIBRARY})
+ENDIF (APPLE)
+
 if(WIN32)
 set(COMMON_LIBS vermilion ${OPENGL_LIBRARIES} optimized glfw3 debug glfw3_d)
+elseif(APPLE)
+set(COMMON_LIBS vermilion ${OpenGL__LIBRARY} glfw ${GLFW_LIBRARIES} ${COCOA_LIBRARY} ${GLUT_LIBRARY} dl)
 elseif (UNIX)
 set(COMMON_LIBS vermilion ${OPENGL_LIBRARIES} glfw ${GLFW_LIBRARIES} GL rt dl)
 else()

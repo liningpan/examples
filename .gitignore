@@ -3,3 +3,16 @@ build/*
 bin/*
 !bin/media/
 *.lib
+*.DS_Store
+*.cmake
+*CMakeFiles/
+*Makefile
+*.html
+*.js
+*.a
+CMakeCache.txt
+CMakeDoxyfile.in
+lib/glfw/docs/*
+lib/glfw/src/glfw3.pc
+lib/glfw/src/glfw_config.h
+
