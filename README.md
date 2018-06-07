@@ -11,8 +11,7 @@ Go forth and fork!
 Building
 --------
 *On Mac*
-Use Homebrew install glfw and Doxyfile
-At the root dir run
+Use Homebrew install glfw and Doxyfile, then run
 ```
 cmake . && make
 ```
