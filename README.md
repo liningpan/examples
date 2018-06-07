@@ -10,7 +10,12 @@ Go forth and fork!
 
 Building
 --------
-
+*On Mac*
+Use Homebrew install glfw and Doxyfile
+At the root dir run
+```
+cmake . && make
+```
 We are using CMake as our build system. To build the samples, enter
 the "build" subdirectory and enter "cmake -G "{your generator here}" .."
 Project files or makefiles will be produced in the build subdirectory.
